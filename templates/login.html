@@ -1,0 +1,44 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+ <!-- Appointment Start -->
+ <div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <!-- <p class="d-inline-block border rounded-pill py-1 px-4" style="margin-left: 400px;">Sign in?</p> -->
+                <h1 class="mb-4 default" style="margin-left: 350px;">Sign In?</h1>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s" style="width: 600px;margin-left: 350px;">
+                    <div class="bg-light rounded h-100 d-flex align-items-center p-5" style="width: 32.5rem;">
+                        
+                        <form method="POST" action="login">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" class="form-control border-0" placeholder="Email" style="height: 55px;width: 200px;" name="useremail">
+                                </div> 
+                                
+                                <div class="col-12 col-sm-6">
+                                    <input type="password" class="form-control border-0" placeholder="Password" style="height: 55px;width: 200px;" name="userpassword">
+                                </div>
+                                    
+                                
+                                
+                               
+                                <div class="col-12">
+                                    <button class="btn btn-primary py-3" type="submit" style="width: 100px;">LOGIN</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!-- Appointment End -->
+ {% endblock %}
+ {% include 'footer.html' %}

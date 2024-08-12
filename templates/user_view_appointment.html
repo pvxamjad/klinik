@@ -1,0 +1,54 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+ <!-- view appointment -->
+ <div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+              <h1 class="mb-4 default">Appointments</h1>  
+              <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="bg-light rounded h-100 d-flex align-items-center p-5">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">ID</th>
+                                <!-- <th scope="col">PHOTO</th> -->
+                                <th scope="col">NAME</th>
+                                <th scope="col">AGE</th>
+                                <th scope="col">PHONE NO:</th>
+                                <th scope="col">SELECTED DOCTOR</th>
+                                <th scope="col">DATE</th>
+                                <th scope="col">PROBLEM</th>
+                                <tr></tr>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in result %}
+                              <tr>
+                                <td>{{i.id}}</td>
+                                <td>{{i.patient_name}}</td>               
+                                <td>{{i.patient_age}}</td>
+                                <td>{{i.patient_phone}}</td>
+                                <td>{{i.patient_doctor}}</td>
+                                <td>{{i.patient_date}}</td>
+                                <td>{{i.patient_problem}}</td>
+                                <td><a href="{% url 'apmt_del' id=i.id %}" onclick="alert('DELETED SUCCESSFULLY')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                              </svg></a></td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                    </div>
+                </div>   
+            </div>
+           
+        </div>
+    </div>
+</div>
+ <!-- end view appointment -->
+
+ {% endblock %}
+ {% include 'footer.html' %}
